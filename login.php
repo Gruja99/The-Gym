@@ -6,7 +6,7 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 if(isset($prijava))
 {
-    $query = "SELECT * FROM korisinik WHERE email='$email' AND password='$password'";
+    $query = "SELECT * FROM korisnik WHERE email='$email' AND password='$password'";
     $result = mysqli_query($conn,$query);
     $row = mysqli_fetch_array($result);
     if(is_array($row))
