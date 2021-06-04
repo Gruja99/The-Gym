@@ -1,10 +1,23 @@
 <?php session_start();
 include("baza.php");
+$edit = false;
 if (isset($_SESSION['ime'])) {
-
-     ?>
+    
+    
+    if(isset($_GET['edit'])){
+        $id = $_GET['edit'];
+        $radnici = mysqli_query($conn, "SELECT * FROM radnici WHERE  id =' $id'"); 
+                $row = mysqli_fetch_array($radnici);
+                      $id = $row['id'];
+                      $ime = $row['ime'];
+                      $edit = true;
+                      $prezime = $row['prezime'];
+                      $email = $row['email'];
+                      $pozicija = $row['pozicija'];    
+                  }?>
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -23,63 +36,43 @@ if (isset($_SESSION['ime'])) {
 <body>
     <header>
         <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark navbar-custom">
-            <div class="container"><a class="navbar-brand" href="#">THE Gym</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarResponsive"><span class="navbar-toggler-icon"></span></button>
+            <div class="container"><a class="navbar-brand" href="index.html">THE Gym</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarResponsive"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="nav navbar-nav ml-auto">
                         <li class="nav-item" role="presentation"><a class="nav-link" href="index.html">home</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href=""><?php echo "Zdravo ". $_SESSION['ime']; ?></a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="logout.php?logout">Odjavi se</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="korisnickastranica.php"><?php echo "Zdravo ". $_SESSION['ime']; ?></a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="logout.php?logout">odjavi se</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    
     <section style="margin-top: 150px;text-align: center;">
-        <h1>Radnici</h1>
-    </section>
-    <section>
-        <article>
-            <div class="row">
-                <div class="col-md-10 offset-md-1">
-                    <div class="card m-auto" style="max-width:850px">
-                        <div class="card-body" style="/*height: 20px;*/">
-                            <form class="d-flex align-items-center" method="post"><i class="fas fa-search d-none d-sm-block h4 text-body m-0"></i><input class="form-control form-control-lg flex-shrink-1" type="text" placeholder="pretrazi ime" name="pretraga" style="/*height: 20px;*/"><button class="btn btn-success btn-lg"
-                                    type="submit">Pretraga</button></form>
+<form id="prijava" class="form-container col-9 " method="post" action="crud.php">
+    <h2 class="text-center"><strong> Zaposleni</strong></h2>
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-           <a href="novi_izmena.php"  > <button class ="offset-md-10 my-4 btn btn-success btn-lg">Novi Radnik</button></a>
-            <table id="" class="table table-striped table-bordered " cellspacing="0" width="100%">
-        <thead>
-            <tr>
-                <th>Ime</th>
-                <th>Prezime</th>
-                <th>Email</th>
-                <th>Pozicija</th>
-                <th>Akcije</th>
-              
-            </tr>
-        </thead>
-        <tbody>
-            <?php $radnici = mysqli_query($conn, 'SELECT * FROM radnici'); 
-              while($row = mysqli_fetch_array($radnici)) { ?>
-            <tr>
-                <td><?php echo $row['ime'] ?></td>
-                <td><?php echo $row['prezime'] ?></td>
-                <td><?php echo $row['email'] ?></td>
-                <td><?php echo $row['pozicija'] ?></td>
-                <td> <a href="novi_izmena.php?edit=<?php echo $row['id'] ?>"> <i class="fas fa-pen"></i></a><a href="crud.php?delete=<?php echo $row['id'] ?>"> <i class="fas fa-trash"></i> </a></td>
-                
-            </tr>
-            <?php } ?>
-            
-        </tbody>
-    </table></article>
-    </section>
+   <?php if(isset($_GET['edit'])){ ?>
+
+    <div class="form-group"><input type="hidden" class="form-control" name="id" value="<?php echo  $id ; ?>"required /></div>
+    <div class="form-group"><input type="text" class="form-control" name="ime" placeholder="ime" value="<?php echo $ime; ?>" required /></div>
+    <div class="form-group"><input type="text" class="form-control" name="prezime" placeholder="prezime" value="<?php echo $prezime; ?>" required /></div>
+    <div class="form-group"><input type="email" class="form-control" name="email" placeholder="e-posta"value="<?php echo  $email ; ?>"  required /></div>
+    <div class="form-group"><input type="text" class="form-control" name="pozicija" placeholder="pozicija" value="<?php echo   $pozicija; ?>" required /></div>
+  <?php } else { ?>
+  <div class="form-group"><input type="hidden" class="form-control" name="id" required /></div>
+    <div class="form-group"><input type="text" class="form-control" name="ime" placeholder="ime" required /></div>
+    <div class="form-group"><input type="text" class="form-control" name="prezime" placeholder="prezime" required /></div>
+    <div class="form-group"><input type="email" class="form-control" name="email" placeholder="e-posta"  required /></div>
+    <div class="form-group"><input type="text" class="form-control" name="pozicija" placeholder="pozicija" required /></div>
+
+   <?php } if($edit == false){ ?>
+    <div class="form-group"><button class="btn btn-primary btn-block" id="potvrda" type="submit" name="potvrda">Potvrdi</button></div>
+<?php }else{ ?>
+    <div class="form-group"><button class="btn btn-primary btn-block" id="potvrda" type="submit" name="izmena">Izmeni</button></div>
+<?php } ?>
+</form>
+
+</section>
     <footer class="footer-basic">
         <ul class="list-inline">
             <li class="list-inline-item"><a href="index.html">Home</a></li>
