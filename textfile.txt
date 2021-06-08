@@ -1,0 +1,35 @@
+Uradjeno je:
+
+
+1.	Upoznati se sa novim HTML 5 oznakama. 
+2.	Kreirati strukturu Web sajta sa bar 4 Web stranice.
+3.	Realizovati odgovarajuću stilizaciju Web stranica.
+4.	Kreirati kontakt formu na Web stranicama ( prijavljivanje korisnika i pretraživanje aplikacione baze podataka).
+5.	Ispitivanje unetog sadržaja u input poljima na klijentskoj strani koristeći neku od raspoloživih tehnologija (JavaScript, jQuery ili HTML 5).
+6.	Pripremiti Web stranice za korišćenje serverskih Web tehnologija (odgovarajući atributi u input oznakama kao i kontejneri za buduće odgovore servera).
+7.	Za realizaciju zahtevanih funkcija koristiti programski paket Bootstrap Studio
+
+Lab vežba 2. Multimedije na Web stranici HTML 5 i JavaScript
+1.	Obnoviti i popisati sve oznake i pripadajuće atribute u HTML5 vezane za multimedije (audio, video, ...).
+2.	Na prvu stranicu Web sajta postaviti sve tipove multimedijalnih sadržaja: tekst, slike, video, animacije... 
+3.	Realizovati slider slika (karusel u Bootstrep-u).
+4.	Na Web stranici titlovati sopstveni video sadržaj na srpski jezik i jezik po po izboru: engleski, španski, nemački. ....
+5.	Za realizaciju zahtevanih funkcija koristiti programski paket Bootstrap Studio.
+Lab vežba 3. Baze podataka na Webu - SQL
+1.	Baze podataka na Web-u. Tabele, kolone vrste, primarni i sekundarni ključevi, tipovi polja. Relacione baze podataka. 
+2.	SQL jezik za upit DBMS-a.
+3.	Kreirati aplikacionu bazu podataka u MySQL-u. Opisati sva polja iz baze.
+4.	U kreiranoj aplikacionoj bazi dodati tabelu za autentifikaciju korisnika (sadrži korisničko ime i lizinku).
+5.	Aplikacionu bazu kreirati sa komandne linije, dokumentovati postupak kreiranja i punjenja baze kao i upite prema bazi slikanjem ekrana.
+6.	Koristite PHPMyAdmin ili odgovarajuće Windows rešenje za dopunu i popunu već kreiranje aplikacione baze podataka. 
+7.	Prvo vežbati u lokalu pomoću WAMP ili XAMPP-a, a potom bazu preneti na NWT server gde se i nalazi Web sajt.
+Lab vežba 4. Programiranje na strani servera PHP i MySQL
+1.	Napisati skript jezik za proveru unetih podataka na serveru;
+2.	Koristiti Ajax tehnologiju za brzo iscrtavanje Web stranica.
+3.	Provera prijave korisnika – autentifikacija. Koristiti kreiranu tabelu u bazi podataka.
+4.	Provera polja u poljima -  Regular Expression. 
+5.	Sesije u PHP-u
+6.	Kontaktiranje baze sa klijenta na serveru (rad sa bazom: pretraživanje, upis i brisanje);
+7.	Pretraživanje baze po određenom kriterijumu 
+8.	Štampanje rezultata pretrage aplikacione baze.
+9.	Za realizaciju zahtevanih funkcija koristiti programski paket PHPStorm.

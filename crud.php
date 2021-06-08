@@ -33,4 +33,6 @@ if (isset($_GET['delete'])) {
 
 	header('location: korisnickastranica.php');
 }
+
+
 ?>

@@ -23,7 +23,7 @@ if (isset($_SESSION['ime'])) {
 <body>
     <header>
         <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark navbar-custom">
-            <div class="container"><a class="navbar-brand" href="#">THE Gym</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarResponsive"><span class="navbar-toggler-icon"></span></button>
+            <div class="container"><a class="navbar-brand" href="index.html">THE Gym</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarResponsive"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="nav navbar-nav ml-auto">
                         <li class="nav-item" role="presentation"><a class="nav-link" href="index.html">home</a></li>
@@ -44,8 +44,8 @@ if (isset($_SESSION['ime'])) {
                 <div class="col-md-10 offset-md-1">
                     <div class="card m-auto" style="max-width:850px">
                         <div class="card-body" style="/*height: 20px;*/">
-                            <form class="d-flex align-items-center" method="post"><i class="fas fa-search d-none d-sm-block h4 text-body m-0"></i><input class="form-control form-control-lg flex-shrink-1" type="text" placeholder="pretrazi ime" name="pretraga" style="/*height: 20px;*/"><button class="btn btn-success btn-lg"
-                                    type="submit">Pretraga</button></form>
+                            <form class="d-flex align-items-center" method="post" ><i class="fas fa-search d-none d-sm-block h4 text-body m-0"></i><input class="form-control form-control-lg flex-shrink-1" type="text" placeholder="pretrazi ime" name="pretraga" style="/*height: 20px;*/"><button class="btn btn-success btn-lg"
+                                    type="submit" value= "<?php echo $radnik ?>" name="search">Pretraga</button></form>
 
                         </div>
                     </div>
@@ -65,7 +65,18 @@ if (isset($_SESSION['ime'])) {
             </tr>
         </thead>
         <tbody>
-            <?php $radnici = mysqli_query($conn, 'SELECT * FROM radnici'); 
+            <?php 
+            if( isset($_POST['search']) ){
+                $radnik =  $_POST['pretraga'];
+              
+                $radnici = mysqli_query($conn,"SELECT * FROM radnici WHERE ime LIKE '%$radnik%'");
+               
+            }
+            else{
+            $radnici = mysqli_query($conn, 'SELECT * FROM radnici'); 
+            $radnik = "";
+         }
+
               while($row = mysqli_fetch_array($radnici)) { ?>
             <tr>
                 <td><?php echo $row['ime'] ?></td>
