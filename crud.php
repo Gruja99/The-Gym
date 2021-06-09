@@ -3,6 +3,23 @@ session_start();
 include("baza.php");
 $edit = false;
 
+if(isset($_POST['prijava']))
+{
+    $ime = $_POST['ime'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $cpassword = $_POST['cpassword'];
+if($password == $cpassword)
+{
+    $query = "INSERT INTO korisnik(ime, email, password ) VALUES ('$ime',  '$email', '$password') ";
+    mysqli_query($conn, $query);
+    header('location: prijava.html');    
+}
+else
+{
+    header('location: registracija.html');   
+}
+}
 if(isset($_POST['potvrda']))
 {
     $ime = $_POST['ime'];

@@ -14,7 +14,7 @@ if (preg_match("/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/", $email)) {
       echo "$email nije validan mejl.";
     }
    
-     if (preg_match( "/^(?=.*\d)(?=.*[a-ž])(?=.*[A-Ž]).{8,}/", $password)) {
+     if (preg_match( "/^(?=.*\d)(?=.*[a-ž])(?=.*[A-Ž]).{7,}/", $password)) {
         $password1 = $password;
        
         }

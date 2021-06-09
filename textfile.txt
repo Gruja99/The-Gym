@@ -13,7 +13,7 @@ Lab vežba 2. Multimedije na Web stranici HTML 5 i JavaScript
 1.	Obnoviti i popisati sve oznake i pripadajuće atribute u HTML5 vezane za multimedije (audio, video, ...).
 2.	Na prvu stranicu Web sajta postaviti sve tipove multimedijalnih sadržaja: tekst, slike, video, animacije... 
 3.	Realizovati slider slika (karusel u Bootstrep-u).
-4.	Na Web stranici titlovati sopstveni video sadržaj na srpski jezik i jezik po po izboru: engleski, španski, nemački. ....
+4.	Na Web stranici titlovati sopstveni video sadržaj na srpski jezik i jezik po po izboru: engleski
 5.	Za realizaciju zahtevanih funkcija koristiti programski paket Bootstrap Studio.
 Lab vežba 3. Baze podataka na Webu - SQL
 1.	Baze podataka na Web-u. Tabele, kolone vrste, primarni i sekundarni ključevi, tipovi polja. Relacione baze podataka. 
